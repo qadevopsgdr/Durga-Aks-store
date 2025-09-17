@@ -1,0 +1,32 @@
+name: Build Node JS Application
+on: 
+  push:
+    branches:
+        - main
+
+
+jobs:
+  aksstore-job-id:
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: checkout - Dr
+          uses: actions/checkout@v5
+
+        - name: Setup - node js - Dr
+          uses: actions/setup-node@v5
+          with:
+             node-version: '20'
+
+        - name: Install Dependencies - Dr
+          working-directory: src/store-front
+          run: npm install
+
+        - name: Build the package - Dr
+          working-directory: src/store-front
+          run: npm run build
+
+ 
+
+
+        
